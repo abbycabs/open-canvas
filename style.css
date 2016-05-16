@@ -1,0 +1,567 @@
+
+
+.canvas-block {
+  border: 1px solid #666;
+  min-height: 150px;
+  position:relative;
+  padding:0;
+}
+.canvas-block h4 {
+  margin:0;
+  padding:10px;
+}
+.canvas-block .small {
+  color:#999;
+  font-size:0.9rem;
+}
+header {
+  background: #4F99C4;
+  color: white;
+  padding: 0 20px;
+  position: relative;
+}
+
+header .btn {
+    float: right;
+}
+
+.inner-wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 15px 10px;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    color: rgb(255,255,255);
+    font-size: 32px;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+  }
+
+.inner {
+  position: relative;
+  width: 100%;
+  min-height:150px;
+}
+textarea {
+  position:absolute;
+  top:40px;
+  min-height:110px;
+  width: 100%;
+  border:0;
+  padding:1px 10px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  resize:none;
+}
+#problem.inner {
+  min-height:300px;
+}
+#problem textarea {
+  min-height:262px;
+}
+textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+  padding:0 9px;
+}
+.section-title {
+  text-align: center;
+}
+.section-title h2 {
+  color: #ab5da4;
+}
+.section-title:first-child {
+  border-right: 1px solid #ab5da4;
+  border-left: 0;
+}
+.section-title {
+  border-left: 1px solid #ab5da4;
+}
+#solution { border-right: 1px solid #ab5da4; }
+#key_metrics { border-right: 1px solid #ab5da4; }
+#resources { border-right: 1px solid #ab5da4; }
+#value_prop { border-left: 1px solid #ab5da4; }
+#user_profiles { border-left: 1px solid #ab5da4; }
+#contrib_profiles { border-left: 1px solid #ab5da4; }
+
+
+
+
+
+/* line 160, http://mozilla.github.io/clubs-events/style.less */
+.canvases {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 -10px;
+}
+/* line 167, http://mozilla.github.io/clubs-events/style.less */
+.canvases div {
+  flex: 1;
+  cursor: pointer;
+  background: #DAE5EB;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  margin: 8px;
+  color: rgba(0, 0, 0, 0.4);
+  min-width: 150px;
+  max-width: 300px;
+  text-align: left;
+  line-height: 20px;
+  pointer: cursor;
+  top: 0;
+  transition: all 0.15s ease-out;
+  position: relative;
+  text-align: center;
+}
+
+.canvases div:hover {
+  opacity: .9;
+  position: relative;
+  top: -2px;
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* line 288, http://mozilla.github.io/clubs-events/style.less */
+.throbber {
+  position: absolute;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease-out;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  color: rgba(0, 0, 0, 0.4);
+}
+/* line 297, http://mozilla.github.io/clubs-events/style.less */
+.throbber h2 {
+  font-weight: normal;
+  font-size: 20px;
+}
+/* line 302, http://mozilla.github.io/clubs-events/style.less */
+.throbber.goodbye {
+  transform: scale(0.8);
+  opacity: 0;
+}
+/* line 307, http://mozilla.github.io/clubs-events/style.less */
+.throbber .dot {
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  margin: 0 3px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  animation: dot .6s linear infinite;
+}
+/* line 316, http://mozilla.github.io/clubs-events/style.less */
+.throbber .dot:nth-child(1) {
+  animation-delay: 0s;
+}
+/* line 319, http://mozilla.github.io/clubs-events/style.less */
+.throbber .dot:nth-child(2) {
+  animation-delay: .2s;
+}
+/* line 322, http://mozilla.github.io/clubs-events/style.less */
+.throbber .dot:nth-child(3) {
+  animation-delay: .4s;
+}
+@keyframes dot {
+  /* line 329, http://mozilla.github.io/clubs-events/style.less */
+  0% {
+    opacity: .8;
+    transform: scale(1.1);
+  }
+  /* line 333, http://mozilla.github.io/clubs-events/style.less */
+  50% {
+    opacity: .4;
+    transform: scaleY(0.8);
+  }
+  /* line 337, http://mozilla.github.io/clubs-events/style.less */
+  100% {
+    opacity: .8;
+    transform: scale(1.1);
+  }
+}
+/* line 343, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.event-popup-wrapper .canvas-block {
+  padding:10px;
+}
+.event-popup-wrapper .canvas-block h4 {
+  padding:0;
+}
+/* line 351, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-data {
+  overflow: auto;
+}
+/* line 355, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .not-specified {
+  color: rgba(0, 0, 0, 0.25);
+  font-style: italic;
+}
+/* line 360, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .left-col {
+  float: left;
+  width: 55%;
+}
+/* line 365, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .right-col {
+  float: right;
+  width: 38%;
+}
+/* line 370, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .right-col .event-photo img {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+/* line 376, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .right-col .event-photo img:hover {
+  opacity: .9;
+}
+/* line 383, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .close-pop {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: .4;
+  cursor: pointer;
+  transition: opacity 0.15s ease-out;
+  padding: 10px;
+  text-align: center;
+  user-select: none;
+}
+/* line 396, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .close-pop .key-label {
+  color: white;
+  padding-top: 5px;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+/* line 405, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .close-pop img {
+  height: 35px;
+}
+/* line 409, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .close-pop:hover {
+  opacity: 1;
+}
+/* line 414, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper ul {
+  margin: 5px 0 30px 0;
+  padding: 0 0 0 22px;
+  list-style-type: none;
+}
+/* line 419, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper ul li {
+  position: relative;
+}
+/* line 422, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper ul li :before {
+  content: "•";
+  color: #BBB;
+  position: absolute;
+  top: -2px;
+  font-size: 18px;
+  left: -15px;
+}
+/* line 433, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-nav {
+  height: 40px;
+  width: 40px;
+  padding: 50px 10px;
+  position: absolute;
+  top: calc(50% - 80px);
+  opacity: .4;
+  cursor: pointer;
+  transition: opacity 0.15s ease-out;
+  border-radius: 4px;
+  z-index: 999;
+  user-select: none;
+}
+/* line 446, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-nav * {
+  user-select: none;
+}
+/* line 450, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-nav:hover {
+  opacity: 1;
+}
+/* line 454, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-nav img {
+  height: 40px;
+}
+/* line 458, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-nav.previous {
+  left: 40px;
+}
+/* line 462, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-nav.next {
+  right: 40px;
+}
+/* line 464, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-nav.next img {
+  transform: rotate(180deg);
+}
+/* line 502, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-popup {
+  background: white;
+  width: 70%;
+  height: calc(100% - 100px);
+  padding: 20px 35px 20px 35px;
+  margin: 30px auto 0 auto;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+  overflow-y: scroll;
+  position: relative;
+}
+/* line 513, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-popup:after {
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0;
+  z-index: 2;
+}
+/* line 526, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper h2 {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.75);
+}
+/* line 533, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper p,
+.event-popup-wrapper div,
+.event-popup-wrapper li {
+  color: rgba(0, 0, 0, 0.6);
+}
+/* line 537, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper p {
+  margin: 0 0 25px 0;
+}
+/* line 542, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper p .value {
+  white-space: pre-wrap;
+}
+/* line 546, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description {
+  margin-bottom: 30px;
+}
+/* line 549, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description .value {
+  white-space: pre-wrap;
+}
+/* line 553, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description .expand {
+  display: none;
+  border-bottom: dashed 1px #ddd;
+  position: relative;
+  overflow: visible;
+  bottom: -10px;
+  width: 100%;
+  text-align: right;
+}
+/* line 563, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description .expand a {
+  text-decoration: none;
+  background: white;
+  padding: 0 8px;
+  position: relative;
+  top: 13px;
+  left: -40px;
+  color: #999;
+  opacity: .7;
+  color: #1a77c4;
+}
+/* line 574, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description .expand a .fa {
+  position: relative;
+}
+/* line 578, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description .expand a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+/* line 586, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description.long {
+  height: 210px;
+  position: relative;
+  padding-bottom: 35px;
+}
+/* line 591, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description.long .value {
+  display: block;
+  max-height: 210px;
+  overflow: hidden;
+}
+/* line 597, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description.long:after {
+  content: "";
+  background: linear-gradient(rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  bottom: 35px;
+  left: 0;
+  z-index: 2;
+}
+/* line 608, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-description.long .expand {
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  z-index: 3;
+}
+/* line 617, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper .event-date {
+  text-align: right;
+  display: block;
+  float: right;
+  font-size: 20px;
+  margin: 0 0 5px 15px;
+  color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 19px;
+}
+/* line 629, http://mozilla.github.io/clubs-events/style.less */
+.event-popup-wrapper h1 {
+  font-weight: 400;
+  padding: 0 0 2px 0;
+  margin: 10px 0 30px 0;
+  font-size: 28px;
+  border-bottom: solid 2px #ddd;
+}
+/* line 639, http://mozilla.github.io/clubs-events/style.less */
+a {
+  color: #1a77c4;
+}
+/* line 642, http://mozilla.github.io/clubs-events/style.less */
+.shakeleft {
+  animation: shakeleft 0.2s ease-out;
+}
+/* line 644, http://mozilla.github.io/clubs-events/style.less */
+.shakeleft .event-data {
+  animation: fadeMeSon 0.4s ease-out;
+}
+/* line 649, http://mozilla.github.io/clubs-events/style.less */
+.shakeright {
+  animation: shakeright 0.2s ease-out;
+}
+/* line 651, http://mozilla.github.io/clubs-events/style.less */
+.shakeright .event-data {
+  animation: fadeMeSon 0.4s ease-out;
+}
+@keyframes fadeMeSon {
+  /* line 657, http://mozilla.github.io/clubs-events/style.less */
+  0% {
+    opacity: 0;
+  }
+  /* line 658, http://mozilla.github.io/clubs-events/style.less */
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes shakeleft {
+  /* line 662, http://mozilla.github.io/clubs-events/style.less */
+  0% {
+    transform: translateX(0);
+  }
+  /* line 663, http://mozilla.github.io/clubs-events/style.less */
+  50% {
+    transform: translateX(-10px);
+  }
+  /* line 664, http://mozilla.github.io/clubs-events/style.less */
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes shakeright {
+  /* line 668, http://mozilla.github.io/clubs-events/style.less */
+  0% {
+    transform: translateX(0);
+  }
+  /* line 669, http://mozilla.github.io/clubs-events/style.less */
+  50% {
+    transform: translateX(10px);
+  }
+  /* line 670, http://mozilla.github.io/clubs-events/style.less */
+  100% {
+    transform: translateX(0);
+  }
+}
+/* line 673, http://mozilla.github.io/clubs-events/style.less */
+.fa {
+  text-align: center;
+}
+/* line 677, http://mozilla.github.io/clubs-events/style.less */
+.fa-user {
+  font-size: 90%;
+}
+/* line 681, http://mozilla.github.io/clubs-events/style.less */
+.no-results,
+.error-connecting,
+.no-events {
+  display: none;
+  width: 300px;
+  text-align: center;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.4);
+}
+/* line 688, http://mozilla.github.io/clubs-events/style.less */
+.no-results strong,
+.error-connecting strong,
+.no-events strong {
+  font-size: 20px;
+}
+/* line 692, http://mozilla.github.io/clubs-events/style.less */
+.no-results .fa-car,
+.error-connecting .fa-car,
+.no-events .fa-car {
+  font-size: 80px;
+  width: 100%;
+  text-align: center;
+  line-height: 90px;
+  margin: 20px 0 0 0;
+  transform-origin: bottom;
+  animation: strobe 1s infinite;
+}
+@keyframes strobe {
+  /* line 706, http://mozilla.github.io/clubs-events/style.less */
+  0% {
+    transform: skew(4deg, 0deg) scaleX(1);
+  }
+  /* line 707, http://mozilla.github.io/clubs-events/style.less */
+  10% {
+    transform: skew(1deg, 0deg) scaleY(0.9);
+  }
+  /* line 708, http://mozilla.github.io/clubs-events/style.less */
+  50% {
+    transform: skew(-4deg, 0deg) scaleX(1);
+  }
+  /* line 709, http://mozilla.github.io/clubs-events/style.less */
+  60% {
+    transform: skew(-1deg, 0deg) scaleY(0.9);
+  }
+  /* line 710, http://mozilla.github.io/clubs-events/style.less */
+  100% {
+    transform: skew(4deg, 0deg) scaleX(1);
+  }
+}

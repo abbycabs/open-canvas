@@ -1,0 +1,142 @@
+<head>
+  <title>Open Canvas scratchpad</title>
+  <link rel="stylesheet" href="http://flukeout.github.io/mozmaker-icon-font/cdn/mozmaker-icons.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://mozilla.github.io/mozmaker/dest/css/mozmaker.css">
+  <!-- <link rel="icon" type="image/png" sizes="196x196" href="https://mozilla.org/media/img/favicon/favicon-196x196.png"> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="inner-wrapper">
+      <h1>Open Canvas</h1>
+      <a class="btn btn-primary" title="Add a new canvas" href="canvas/index.html">+ Add New Canvas</a>
+    </div>
+  </header>
+  <div class="inner-wrapper">
+    <div class="throbber">
+      <h2>Loading canvases...</h2>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div id="canvases" class="canvases"></div>
+
+    <div class="error-connecting">
+      <h2>Dang, we couldn't get the reports!</h2>
+      <p>Please refresh the page the page to try again.
+    </div>
+  </div>
+
+
+
+    <div class="event-popup-wrapper">
+
+      <div class="event-nav previous">
+        <img src="images/chevron.svg"/>
+      </div>
+      <div class="event-nav next">
+        <img src="images/chevron.svg"/>
+      </div>
+      <div class="close-pop">
+        <img src="images/x-white.svg"/>
+        <div class="key-label">ESC</div>
+      </div>
+
+      <div class="event-popup">
+        <div class="event-data">
+          <span class="event-date"><span class="value">March 16, 2016</span></span>
+
+          <h1 id="title">
+            Project: <span class="club-name"><span class="value">Mozilla Rio Club</span></span>
+          </h1>
+          <div style="margin:20px">
+          <div class="row">
+            <div id="problem" class="col-xs-12 col-md-2 canvas-block">
+              <div class="inner">
+                <h4>Problem</h4>
+                <span class="value"></span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-2">
+              <div id="solution" class="row canvas-block">
+                <div class="inner">
+                  <h4>Solution</h4>
+                  <span class="value"></span>
+                </div>
+              </div>
+              <div id="key_metrics" class="row canvas-block">
+                <div class="inner">
+                  <h4>Key Metrics</h4>
+                  <span class="value"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <div id="value_prop" class="row canvas-block">
+                <div class="inner">
+                  <h4>Unique Value Proposition</h4>
+                  <span class="value"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div id="user_profiles" class="col-xs-12 col-md-8 canvas-block">
+                  <div class="inner">
+                    <h4>User Profiles</h4>
+                    <span class="value"></span>
+                  </div>
+                </div>
+                <div id="user_channels" class="col-xs-12 col-md-4 canvas-block">
+                  <div class="inner">
+                    <h4>User Channels</h4>
+                    <span class="value"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div id="resources" class="col-xs-12 col-md-4 canvas-block">
+              <div class="inner">
+                <h4>Resources Required</h4>
+                <span class="value"></span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <div class="row">
+                <div id="contrib_profiles" class="col-xs-12 col-md-8 canvas-block">
+                  <div class="inner">
+                    <h4>Contributor Profiles</h4>
+                    <span class="value"></span>
+                  </div>
+                </div>
+                <div id="contrib_channels" class="col-xs-12 col-md-4 canvas-block">
+                  <div class="inner">
+                    <h4>Contributor Channels</h4>
+                    <span class="value"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row hidden-sm-down">
+            <div class="col-md-4 section-title">
+              <h2>Product</h2>
+            </div>
+            <div class="col-md-8 section-title">
+              <h2>Community</h2>
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+  </div>
+  <script src="js/jquery-2.2.3.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
