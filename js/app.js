@@ -1,5 +1,7 @@
 
-var sheetsuUrl = "https://sheetsu.com/apis/v1.0/38d32d72";
+// Your Google Drive Spreadsheet URL
+var sheetID = "1EfV0QDhCAGTZFjJal6xuAgBqdvTRPA1-U2TLoCzC0Ug";
+var sheetURL = "https://spreadsheets.google.com/feeds/cells/"+sheetID+"/1/public/values?alt=json";
 
 var fields = {
   problem : "Problem",
@@ -15,78 +17,31 @@ var fields = {
 }
 var dayNames = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 var monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
-
-// Dummy data for now -- remove when you have sheetsu working!
-var data = [
-  {
-    Title: 'test',
-    Problem: 'problem',
-    Solution: 'solution',
-    id:0,
-    Timestamp: '5/15/2016 16:52:35'
-  },
-  {
-    Title: 'ABBY!',
-    Problem: 'this is the problem',
-    Solution: 'this is the solution',
-    id:4,
-    Timestamp: '5/15/2016 16:52:35'
-  },
-  {
-    Title: 'Paper Badger',
-    Problem: "* lack of recognition on certain contribution types on academic papers\n* papers aren't taking advantage of the web as a medium",
-    Solution: 'award badges to authors on academic papers based on their contributions',
-    "Key Metrics": "# of publishers using badges, # of badges awarded",
-    "Unique Value Proposition": "Issuing badges to credit authors on academic papers. Badges for authors on academic papers. Get author roles on your papers",
-    "User Profiles": "Publishers who want to use the web to enhance paper reading experience. Researchers. ORCID.",
-    "User Channels": "MSL community, blog, twitter, talks",
-    "Resources Required": "Hardware: heroku 1 process (free), Development, Design, Publisher & ORCID  buy-in",
-    "Contributor Profiles": "Devs @ Publishers, Devs @ ORCID, Researchers who can code / want badges",
-    "Contributor Channels": "buy-in from employer users who want new features",
-    id:5,
-    Timestamp: '5/15/2016 16:52:35'
-  },
-  {
-    Title: 'Contributorship Badges',
-    Problem: 'problem',
-    Solution: 'solution',
-    id:6,
-    Timestamp: '5/15/2016 16:52:35'
-  },
-  {
-    Title: 'badges',
-    Problem: 'problem',
-    Solution: 'solution',
-    id:7,
-    Timestamp: '5/15/2016 16:52:35'
-  }
-];
+var data = [];
 
 loadCanvases = function(){
-  console.log('load canvases');
-  $.ajax({
-    url: sheetsuUrl,
-    dataType: 'json',
-    type: 'GET',
+  $.get(sheetURL).done(function(returnedData) {
 
-    // place for handling successful response
-    success: function(d) {
-      data = d;
-      showCanvases(data);
-    },
+    data = parseDriveData(returnedData);
 
-    // handling error response
-    error: function(data) {
-     console.log(data);
-      $(".error-connecting").show();
-      $(".throbber").hide();
+    localStorage.setItem("data",JSON.stringify(data));
+    console.log(data);
+
+    if(data.length == 0) {
+      console.log('no events');
+      $(".no-events").show();
     }
+
+    showCanvases();
+
+  }).fail(function(e){
+    $(".error-connecting").show();
+    $(".throbber").hide();
   });
 }
 
-
-showCanvases = function(data){
+showCanvases = function(){
+  console.log(data);
   $(".throbber").addClass("goodbye");
 
    var list = $('#canvases');
@@ -249,8 +204,8 @@ function formatDate(dateString) {
 
 $(document).ready(function(){
   if($('#canvases').length){
-    showCanvases(data);
-    // loadCanvases();
+    // showCanvases(data);
+    loadCanvases();
   }
 
   $("body").on("click",".canvas",function(){
@@ -298,4 +253,38 @@ $(document).ready(function(){
     }
 });
 });
+
+// Formats JSON data returned from Google Spreadsheet and formats it into
+// an array with a series of objects with key value pairs like "column-name":"value"
+
+function parseDriveData(driveData){
+  var headings = {};
+  var newData = {};
+  var finalData = [];
+  var entries = driveData.feed.entry;
+
+  for(var i = 0; i < entries.length; i++){
+    var entry = entries[i];
+    var row = parseInt(entry.gs$cell.row);
+    var col = parseInt(entry.gs$cell.col);
+    var value = entry.content.$t;
+
+    if(row == 1) {
+      headings[col] = value;
+    }
+
+    if(row > 1) {
+      if(!newData[row]) {
+        newData[row] = {};
+      }
+      newData[row][headings[col]] = value;
+    }
+  }
+
+  for(var k in newData){
+    finalData.push(newData[k]);
+  }
+
+  return finalData;
+}
 
