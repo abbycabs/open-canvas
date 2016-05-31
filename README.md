@@ -8,7 +8,7 @@ Things won't work sometimes! Like right now.
 
 ## Under the hood
 
-Building off of [@flukeout](https://github.com/flukeout/)'s work on [mozilla club events](https://github.com/mozilla/clubs-events) and [@blahah](https://github.com/blahah/) & [@joeyklee](https://github.com/joeyklee)'s first pass at an [online editable Open Canvas](https://mozillascience.github.io/working-open-workshop/open_canvas/). This uses google forms + sheetsu to store the finished canvases!
+Building off of [@flukeout](https://github.com/flukeout/)'s work on [mozilla club events](https://github.com/mozilla/clubs-events) and [@blahah](https://github.com/blahah/) & [@joeyklee](https://github.com/joeyklee)'s first pass at an [online editable Open Canvas](https://mozillascience.github.io/working-open-workshop/open_canvas/). This uses google forms to store the finished canvases!
 
 ## Open Canvas?
 
